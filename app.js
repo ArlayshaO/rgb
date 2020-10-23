@@ -13,7 +13,7 @@ var resetPressed = true;
 
 
 init();
-
+/*score*/
 function init(){
 	setupModeButtons();
 	setupSquares();
@@ -27,7 +27,7 @@ function init(){
 	}
 	reset();
 }
-
+/* easy mode*/
 function setupModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++){
 		modeButtons[i].addEventListener("click", function(){
@@ -39,7 +39,7 @@ function setupModeButtons(){
 		});
 	}
 }
-
+/* changes the color of the squares*/
 function setupSquares(){
 	for(var i = 0; i < squares.length; i++){
 	//add click listeners to squares
@@ -71,7 +71,7 @@ function setupSquares(){
 	}
 }
 
-
+/*change the options for the color that youshould guess*/
 async function updateColorName(){
 	const regex = /\([^\)]+\)/g; 
 	var rgbColors = pickedColor.match(regex); 
@@ -91,7 +91,7 @@ async function updateColorName(){
 		colorDisplay.textContent = colorData.name.value + "-ish"; 
 	}
 }
-
+/* starts over with a new color*/
 function reset(){
 	resetPressed = true;
 	colors = generateRandomColors(numSquares);
@@ -116,7 +116,7 @@ function reset(){
 resetButton.addEventListener("click", function(){
 	reset();
 })
-
+/*changes the colors of the squares*/
 function changeColors(color){
 	//loop through all squares
 	for(var i = 0; i < squares.length; i++){
@@ -124,7 +124,7 @@ function changeColors(color){
 		squares[i].style.background = color;
 	}
 }
-
+/*picks a random color from the options*/
 function pickColor(){
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
